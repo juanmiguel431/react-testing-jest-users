@@ -16,12 +16,12 @@ const UserForm: React.FC<UserFormProps> = function ({ onUserAdd }) {
 
   return <form onSubmit={handleSubmit}>
     <div>
-      <label htmlFor="">Name</label>
-      <input value={name} onChange={e => setName(e.target.value)}/>
+      <label htmlFor="name">Name</label>
+      <input id="name" value={name} onChange={e => setName(e.target.value)}/>
     </div>
     <div>
-      <label htmlFor="">Email</label>
-      <input value={email} onChange={e => setEmail(e.target.value)}/>
+      <label htmlFor="email">Email</label>
+      <input id="email" value={email} onChange={e => setEmail(e.target.value)}/>
     </div>
     <button>Add User</button>
   </form>
