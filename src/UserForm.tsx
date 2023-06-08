@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-
-export interface User {
-  name: string;
-  email: string;
-}
+import { User } from './models';
 
 interface UserFormProps {
   onUserAdd: (user: User) => void;
