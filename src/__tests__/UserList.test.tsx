@@ -2,13 +2,19 @@ import { render, screen, within } from '@testing-library/react';
 import UserList from '../UserList';
 import { User } from '../models';
 
+function renderComponent() {
+  const users: User[] = [
+    { name: 'jame', email: 'jane@jane.com' },
+    { name: 'sam', email: 'sam@sam.com' },
+  ];
+  const { container } = render(<UserList users={users}/>);
+
+  return { users, container };
+}
+
 test('render one row per user', async () => {
   // Render the component
-  const users: User[] = [
-    { name: 'jame', email: 'jane@jane.com'},
-    { name: 'sam', email: 'sam@sam.com'},
-  ];
-  const { container } = render(<UserList users={users} />);
+  const { container } = renderComponent();
 
   // Find all the rows in the table
   // screen.logTestingPlaygroundURL();
@@ -22,11 +28,7 @@ test('render one row per user', async () => {
 });
 
 test('render email and name of each user', async () => {
-  const users: User[] = [
-    { name: 'jame', email: 'jane@jane.com'},
-    { name: 'sam', email: 'sam@sam.com'},
-  ];
-  render(<UserList users={users} />);
+  const { users } = renderComponent();
 
   for (let user of users) {
     const name = screen.getByRole('cell', {
