@@ -5,7 +5,7 @@ interface UserListProps {
   users: User[];
 }
 
-const UserList: React.FC<UserListProps> = function ({ users}) {
+const UserList: React.FC<UserListProps> = function ({ users }) {
 
   const renderedUsers = users.map((user) => {
     return <tr key={user.name}>
@@ -16,11 +16,13 @@ const UserList: React.FC<UserListProps> = function ({ users}) {
 
   return <table>
     <thead>
+    <tr>
       <th>Name</th>
       <th>Email</th>
+    </tr>
     </thead>
-    <tbody>
-      {renderedUsers}
+    <tbody data-testid="users">
+    {renderedUsers}
     </tbody>
   </table>;
 }
